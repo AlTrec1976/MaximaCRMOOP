@@ -10,6 +10,8 @@
     <ItemGroup>
       <ProjectReference Include="..\ConsoleApp7.BLL.Logic.Contracts\ConsoleApp7.BLL.Logic.Contracts.csproj" />
       <ProjectReference Include="..\ConsoleApp7.BLL.Logic\ConsoleApp7.BLL.Logic.csproj" />
+      <ProjectReference Include="..\ConsoleApp7.Common.Entities\ConsoleApp7.Common.Entities.csproj" />
+      <ProjectReference Include="..\ConsoleApp7.Common.Utils\ConsoleApp7.Common.Utils.csproj" />
     </ItemGroup>
 
 </Project>
