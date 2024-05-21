@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\ConsoleApp7.BLL.Logic.Contracts\ConsoleApp7.BLL.Logic.Contracts.csproj" />
       <ProjectReference Include="..\ConsoleApp7.DAL.Repository.Contracts\ConsoleApp7.DAL.Repository.Contracts.csproj" />
       <ProjectReference Include="..\ConsoleApp7.DAL.Repository\ConsoleApp7.DAL.Repository.csproj" />
     </ItemGroup>
