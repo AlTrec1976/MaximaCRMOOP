@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ConsoleApp7.DAL.Repository.Contracts\ConsoleApp7.DAL.Repository.Contracts.csproj" />
+      <ProjectReference Include="..\ConsoleApp7.DAL.Repository\ConsoleApp7.DAL.Repository.csproj" />
+    </ItemGroup>
+
+</Project>
