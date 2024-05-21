@@ -15,14 +15,13 @@ public class CourseLogic : ICourseLogic
     {
         Console.WriteLine("Курс: " + Storage.Courses[index].Subject);
         Console.WriteLine("Преподаватель: " + Storage.Courses[index].Teacher);
-        Console.WriteLine("Студенты:");
-        /*
+        Console.WriteLine("Студенты:"); 
+        
         foreach (var item in Storage.Courses[index].Students)
         {
             index++;
             Console.WriteLine("\t" + index + ". " + item.Name);
         }
-        */
 
         /*
         if (int.TryParse(Console.ReadLine(), out int choiceIndex) && choiceIndex < _courses.Count)
