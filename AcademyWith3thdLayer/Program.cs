@@ -16,6 +16,8 @@ namespace AcademyWith3thdLayer;
 
 public class Program
 {
+    static List<Student> _students = new List<Student>();
+
     private static string subject = string.Empty;
     private static string teacher = string.Empty;
 
@@ -59,8 +61,11 @@ public class Program
             chois = ReadChois();
             SwitcherCourse(chois);
         }
-        var course = CourseHelper.EntryDataCourseHelper(subject, teacher);
+
+        List<Student> students = new List<Student>(_students);
+        var course = CourseHelper.EntryDataCourseHelper(subject, teacher, students);
         _courseLogic.SaveCourse(course);
+        _students.Clear();
     }
     
     private static void SwitcherCourse(int chois)
@@ -93,6 +98,7 @@ public class Program
                     Console.WriteLine(i + ") " + Storage.Students[i].Name);
                 }
                 index = int.Parse(Console.ReadLine());
+                _students.Add(Storage.Students[index]);
                 break;
             default:
                 break;
