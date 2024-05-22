@@ -18,8 +18,8 @@ public class Program
 {
     static List<Student> _students = new List<Student>();
 
-    private static string subject = string.Empty;
-    private static string teacher = string.Empty;
+    private static string _subject = string.Empty;
+    private static string _teacher = string.Empty;
 
     private static readonly ISubjectLogic _subjectLogic;
     private static readonly ITeacherLogic _teacherLogic;
@@ -63,7 +63,7 @@ public class Program
         }
 
         List<Student> students = new List<Student>(_students);
-        var course = CourseHelper.EntryDataCourseHelper(subject, teacher, students);
+        var course = CourseHelper.EntryDataCourseHelper(_subject, _teacher, students);
         _courseLogic.SaveCourse(course);
         _students.Clear();
     }
@@ -77,27 +77,33 @@ public class Program
                 Console.WriteLine("Выбрите предмет:");
                 for (int i = 0; i < Storage.Subjects.Count; i++)
                 {
-                    Console.WriteLine(i + ") " + Storage.Subjects[i].Name);
+                    Console.WriteLine(i+1 + ") " + Storage.Subjects[i].Name);
                 }
-                index = int.Parse(Console.ReadLine());
-                subject = Storage.Subjects[index].Name;
+                index = int.Parse(Console.ReadLine())-1;
+                _subject = Storage.Subjects[index].Name;
                 break;
             case 2:
                 Console.WriteLine("Выбрите преподавателя:");
                 for (int i = 0; i < Storage.Teachers.Count; i++)
                 {
-                    Console.WriteLine(i + ") " + Storage.Teachers[i].Name);
+                    if (Storage.Teachers[i].Subject.IndexOf(_subject) >= 0)
+                    {
+                        Console.WriteLine(i+1 + ") " + Storage.Teachers[i].Name);
+                    }
                 }
-                index = int.Parse(Console.ReadLine());
-                teacher = Storage.Teachers[index].Name;
+
+                Console.WriteLine("Для возврата нажмите любую другую кнопку");
+                index = int.Parse(Console.ReadLine())-1;
+                _teacher = Storage.Teachers[index].Name;
                 break;
             case 3:
                 Console.WriteLine("Выбрите студента:");
                 for (int i = 0; i < Storage.Students.Count; i++)
                 {
-                    Console.WriteLine(i + ") " + Storage.Students[i].Name);
+                    Console.WriteLine(i+1 + ") " + Storage.Students[i].Name);
                 }
-                index = int.Parse(Console.ReadLine());
+                Console.WriteLine("Для возврата нажмите любую другую кнопку");
+                index = int.Parse(Console.ReadLine())-1;
                 _students.Add(Storage.Students[index]);
                 break;
             default:
@@ -110,17 +116,14 @@ public class Program
         switch (chois)
         {
             case 1:
-                Console.WriteLine("Введите название предмета:");
                 var subject = SubjectHelper.EntryDataSubjectHelper();
                 _subjectLogic.SaveSubject(subject);
                 break;
             case 2:
-                Console.WriteLine("Введите преподавателя:");
                 var teacher = TeacherHelper.EntryDataTeacherHelper();
                 _teacherLogic.SaveTeacher(teacher);
                 break;
             case 3:
-                Console.WriteLine("Введите студента, затем его возраст:");
                 var student = StudentHelper.EntryDataStudentHelper();
                 _studentLogic.CreateStudent(student);
                 break;
@@ -131,9 +134,9 @@ public class Program
                 Console.WriteLine("Выберите курс:");
                 for (int i = 0; i < Storage.Courses.Count; i++)
                 {
-                    Console.WriteLine(i + ") " + Storage.Courses[i].Subject);
+                    Console.WriteLine(i+1 + ") " + Storage.Courses[i].Subject);
                 }
-                _courseLogic.ViewCourse(int.Parse(Console.ReadLine()));
+                _courseLogic.ViewCourse(int.Parse(Console.ReadLine())-1);
                 break;
             default:
                 break;
@@ -142,17 +145,17 @@ public class Program
 
     private static int ReadChois()
     {
-        int chois = -1;
+        int chois = default;
 
-        while (chois == -1)
+        while (true)
         {
             try
             {
                 chois = int.Parse(Console.ReadLine());
+                break;
             }
             catch (Exception e)
             {
-                Console.WriteLine("Введите корректное значение");
                 chois = -1;
                 break;
             }

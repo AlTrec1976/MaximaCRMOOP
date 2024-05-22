@@ -7,6 +7,7 @@ public class Teacher
     #region Prorertys
 
     public string Name { get; set; }
+    public List<string> Subject { get; set; } = new List<string>();
 
     #endregion
 }
