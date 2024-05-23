@@ -1,13 +1,12 @@
 ﻿using AcademyWith3thdLayer.Views;
 using ConsoleApp7.BLL.Logic;
+using ConsoleApp7.BLL.Logic.Contracts.Courses;
 using ConsoleApp7.BLL.Logic.Contracts.Students;
 using ConsoleApp7.BLL.Logic.Contracts.Subjects;
 using ConsoleApp7.BLL.Logic.Contracts.Teachers;
 using ConsoleApp7.BLL.Logic.Courses;
 using ConsoleApp7.BLL.Logic.Subjects;
 using ConsoleApp7.BLL.Logic.Teachers;
-using ConsoleApp7.Common.Entities.SubjectsModels;
-using ConsoleApp7.Common.Entities.TeachersModels;
 using ConsoleApp7.Common.Entities.StudentsModels;
 using ConsoleApp7.Common.Utils.Helpers;
 using ConsoleApp7.DAL.Repository;
@@ -24,7 +23,7 @@ public class Program
     private static readonly ISubjectLogic _subjectLogic;
     private static readonly ITeacherLogic _teacherLogic;
     private static readonly IStudentLogic _studentLogic;
-    private static readonly CourseLogic _courseLogic;
+    private static readonly ICourseLogic _courseLogic;
 
     static Program()
     {
