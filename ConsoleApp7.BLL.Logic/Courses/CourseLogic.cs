@@ -23,16 +23,6 @@ public class CourseLogic : ICourseLogic
             Console.WriteLine("\t" + index + ". " + item.Name);
         }
 
-        /*
-        if (int.TryParse(Console.ReadLine(), out int choiceIndex) && choiceIndex < _courses.Count)
-        {
-        }
-        else
-        {
-            Console.WriteLine("Нет такого курса.");
-        }
-        */
-        
         Console.WriteLine("Для возврата, нажмите любую клавишу");
         Console.ReadLine();
 

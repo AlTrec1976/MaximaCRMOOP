@@ -6,6 +6,7 @@ public static class SubjectHelper
 {
     public static Subject EntryDataSubjectHelper()
     {
+        Console.WriteLine("Введите название предмета:");
         var name = Console.ReadLine();
         
         return new Subject { Name = name };
